@@ -1,0 +1,45 @@
+<title>NOTES LIFO</title>
+
+<input type="text" id="text" placeholder="Entrer une note" style="width: 100%; margin-top:10px;"/><hr>
+<span id="lifo"></span>
+<script>
+	var text = document.getElementById("text")
+	var lifo = document.getElementById("lifo")
+	document.addEventListener("keydown", function(e) {
+		if(e.keyCode == 13) {
+			var txtVal = text.value
+			lifo.innerHTML = '<p>' + txtVal + '</p>' + lifo.innerHTML;
+			text.value = ""
+		}
+	})
+	document.addEventListener('click', function(e) {
+		e = e || window.event;
+    	var target = e.target || e.srcElement,
+        text = target.textContent || target.innerText; 
+        lifo.removeChild(target); 
+	})
+</script>
+<style>
+	body {
+		margin:auto;
+		width:100%;
+		background: cyan;
+		font-size: 30px;
+		text-transform: uppercase;
+	}
+	#lifo, #text {
+		margin:auto;
+		font-size: 30px;
+		text-transform: uppercase;
+	}
+	p:nth-child(2n) {
+		color : #224488;
+		background: white;
+		padding:2px;
+	}
+	p:nth-child(2n+1) {
+		color : #FF4422;
+		background: white;
+		padding:2px;
+	}
+</style>
